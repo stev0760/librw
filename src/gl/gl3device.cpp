@@ -1954,6 +1954,7 @@ deviceSystemSDL2(DeviceReq req, void *arg, int32 n)
 		if (n >= SDL_GetNumVideoDisplays())
 			return 0;
 		glGlobals.currentDisplay = n;
+		makeVideoModeList(glGlobals.currentDisplay);
 		return 1;
 
 	case DEVICEGETSUBSSYSTEMINFO: {
@@ -2042,6 +2043,7 @@ deviceSystemGLFW(DeviceReq req, void *arg, int32 n)
 			return 0;
 		glGlobals.currentMonitor = n;
 		glGlobals.monitor = monitors[glGlobals.currentMonitor];
+		makeVideoModeList(glGlobals.monitor);
 		return 1;
 
 	case DEVICEGETSUBSSYSTEMINFO:
